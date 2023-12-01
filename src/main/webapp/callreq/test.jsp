@@ -33,18 +33,18 @@
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-	
-	var callNo = document.getElementById('callNo').value;
-	
+  
+  var callNo = document.getElementById('callNo').value;
+  
     window.callNo = {
-    		callNo: callNo
+        callNo: callNo
             };
     
 });
 
 function deleteCall(){
-	alert("배차 탐색을 취소하시겠습니까?");
-	$("form").attr("method" , "POST").attr("action" , "/callreq/deleteCall").submit();
+  alert("배차 탐색을 취소하시겠습니까?");
+  $("form").attr("method" , "POST").attr("action" , "/callreq/deleteCall").submit();
 }
 
 let socket = new WebSocket("ws://localhost:8000/websocket");
@@ -76,12 +76,13 @@ function sendMessageBack() {
 
 function sendMessage(callNo) {    
     
-	  console.log("push 된 callNo : "+callNo);
+    console.log("push 된 callNo : "+callNo);
 
-	  // 'user01'에게 위치 데이터 전송
-	 // template.convertAndSend("/topic/location/user01", location);
-  
-    socket.send(callNo);
+    // 'user01'에게 위치 데이터 전송
+   // template.convertAndSend("/topic/location/user01", location);
+
+      
+    socket.send("/topic/location/user01", callNo);
 }
 
 function showButtonWithMessage(message) {
