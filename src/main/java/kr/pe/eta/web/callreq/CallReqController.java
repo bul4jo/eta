@@ -62,7 +62,7 @@ public class CallReqController extends Socket {
 		for (int i = 0; i < session.size(); i++) {
 			if (!recieveSession.getId().equals(session.get(i).getId())) {
 				try {
-					session.get(i).getBasicRemote().sendText("상대 : " + msg);
+					session.get(i).getBasicRemote().sendText("배차번호 : " + msg);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

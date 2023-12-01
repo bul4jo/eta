@@ -6,7 +6,6 @@
 
 <mapper namespace="kr.pe.eta.service.community.CommunityDao">
 
-<<<<<<< HEAD
     <resultMap id="callSelectMap" type="call">
         <result property="callNo"           column="call_no"          jdbcType="NUMERIC" />
         <result property="callCode"         column="call_code"        jdbcType="VARCHAR" />
@@ -201,8 +200,5 @@
                     END
         WHERE user_no = #{userNo}
     </update>
-    
-=======
-  
->>>>>>> stash
+
 </mapper>

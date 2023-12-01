@@ -21,6 +21,7 @@
     <result property="endY"     column="end_y"      jdbcType="NUMERIC" />
     <result property="callStateCode"     column="call_state_code"      jdbcType="VARCHAR" />
     <result property="star"     column="star"      jdbcType="NUMERIC" />
+    <result property="routeOpt"     column="route_opt"      jdbcType="VARCHAR" />
   </resultMap>
   
   <resultMap type="Like" id="LikeSelectMap">
@@ -62,9 +63,9 @@
     v_call_no NUMBER;
   BEGIN
     INSERT INTO call 
-    (call_no, call_code, call_date, real_pay, start_addr, start_keyword, start_x, start_y, end_addr, end_keyword, end_x, end_y, call_state_code, star) 
+    (call_no, call_code, call_date, real_pay, start_addr, start_keyword, start_x, start_y, end_addr, end_keyword, end_x, end_y, call_state_code, star, route_opt) 
     VALUES 
-    (seq_call_call_no.NEXTVAL, #{callCode:VARCHAR}, SYSDATE, #{realPay:NUMERIC}, #{startAddr:VARCHAR}, #{startKeyword:VARCHAR}, 0.0, 0.0, #{endAddr:VARCHAR}, #{endKeyword:VARCHAR}, 0.0, 0.0, '운행전', 0)
+    (seq_call_call_no.NEXTVAL, #{callCode:VARCHAR}, SYSDATE, #{realPay:NUMERIC}, #{startAddr:VARCHAR}, #{startKeyword:VARCHAR}, 0.0, 0.0, #{endAddr:VARCHAR}, #{endKeyword:VARCHAR}, 0.0, 0.0, '운행전', 0, #{routeOpt:VARCHAR})
     RETURNING call_no INTO v_call_no;
 
     INSERT INTO match (call_no, passenger_no, driver_no) VALUES (v_call_no, #{userNo:NUMERIC}, null);
