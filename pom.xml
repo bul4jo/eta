@@ -114,16 +114,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
-			        <!-- 추가: Maven Compiler Plugin 버전 업그레이드 -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.23</version>
-            <configuration>
-                <release>17</release> <!-- 여기에 사용하는 Java 버전을 지정하세요 -->
-            </configuration>
-        </plugin>
+
     </plugins>
 	</build>
 
