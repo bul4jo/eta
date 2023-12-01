@@ -12,6 +12,16 @@
 <body>
 배차 탐색 중<br>
 배차번호 : ${callNo} <br>
+
+    <c:set var="i" value="0" />
+    <c:forEach var="callDriverList" items="${callDriverList}">
+      <c:set var="i" value="${ i+1 }" />
+      
+      <div id="callDriverList">
+      <p> petOpt, carOpt에 해당하는 driver : ${callDriverList.userNo}</p>        
+      </div>
+    </c:forEach>
+    
 <form>
 <input type="hidden" name="callNo" value="${callNo}">
 <button type="button" onclick="deleteCall()">취소</button>

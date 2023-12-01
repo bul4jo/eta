@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import kr.pe.eta.domain.Call;
 import kr.pe.eta.domain.Like;
+import kr.pe.eta.domain.User;
 
 @Mapper
 public interface CallReqDao {
@@ -21,5 +22,7 @@ public interface CallReqDao {
 	public int getCallNo() throws Exception;
 
 	public void deleteCall(int callNo) throws Exception;
+
+	public List<User> getCallDriverList(String carOpt, boolean petOpt) throws Exception;
 
 }

@@ -29,6 +29,12 @@
       <result property="likeName"   column="LIKE_NAME"      jdbcType="VARCHAR"/>
       <result property="likeAddr"     column="LIKE_ADDR"     jdbcType="VARCHAR"/>
   </resultMap>
+  
+  <resultMap id="userSelectMap" type="User">
+    <result property="userNo"       column="user_no"       jdbcType="NUMERIC"/>
+    <result property="carOpt"     column="car_opt"      jdbcType="NUMERIC" />
+    <result property="petOpt"     column="pet_opt"      jdbcType="NUMERIC" />
+  </resultMap>
 
   <select id="getEndAddrList" parameterType="int" resultMap="callReqSelectMap">
        SELECT * FROM call
@@ -61,7 +67,7 @@
     (seq_call_call_no.NEXTVAL, #{callCode:VARCHAR}, SYSDATE, #{realPay:NUMERIC}, #{startAddr:VARCHAR}, #{startKeyword:VARCHAR}, 0.0, 0.0, #{endAddr:VARCHAR}, #{endKeyword:VARCHAR}, 0.0, 0.0, '운행전', 0)
     RETURNING call_no INTO v_call_no;
 
-    INSERT INTO match (call_no, passenger_no, driver_no) VALUES (v_call_no, #{userNo:NUMERIC}, 1002);
+    INSERT INTO match (call_no, passenger_no, driver_no) VALUES (v_call_no, #{userNo:NUMERIC}, null);
   END;
   ]]>
 </insert>
@@ -81,4 +87,8 @@
     END;
     ]]>
   </delete>
+  
+    <select id="getCallDriverList" parameterType="map" resultMap="userSelectMap">
+      SELECT user_no FROM users WHERE car_opt=#{carOpt} AND pet_opt=#{petOpt} 
+  </select>
 </mapper>

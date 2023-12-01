@@ -21,6 +21,7 @@ import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 import kr.pe.eta.domain.Call;
 import kr.pe.eta.domain.Like;
+import kr.pe.eta.domain.User;
 import kr.pe.eta.service.callreq.CallReqService;
 import kr.pe.eta.service.pay.PayService;
 
@@ -107,20 +108,24 @@ public class CallReqController extends Socket {
 
 		System.out.println("/callreq/addCall");
 
-		System.out.println("startAddr : " + call.getStartAddr());
-		System.out.println("startKeyword : " + call.getStartKeyword());
-		System.out.println("endAddr : " + call.getEndAddr());
-		System.out.println("endKyword : " + call.getEndKeyword());
-		System.out.println("prepay : " + call.getRealPay());
-		System.out.println("callCode : " + call.getCallCode());
+		System.out.println("call : " + call);
 
 		call.setUserNo(1004);
 
-		callReqService.addCall(call);
+		callReqService.addCall(call); // addCall()
 		int callNo = callReqService.getCallNo();
+
+		boolean petOpt = call.isPetOpt();
+		System.out.println("petOpt : " + petOpt);
+
+		String carOpt = call.getCarOpt();
+		System.out.println("carOpt : " + carOpt);
+
+		List<User> callDriverList = callReqService.getCallDriverList(carOpt, petOpt); // driver 탐색
 
 		model.addAttribute("call", call);
 		model.addAttribute("callNo", callNo);
+		model.addAttribute("callDriverList", callDriverList);
 
 		return "forward:/callreq/searchCall.jsp";
 	}

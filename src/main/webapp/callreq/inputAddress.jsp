@@ -137,7 +137,6 @@ if (navigator.geolocation) {
       <p>${endAddrList.endX}</p>
       <p>${endAddrList.endY}</p>          
       </div>
-+
     </c:forEach>
     
     <!-- 즐겨찾기 리스트-->
@@ -150,7 +149,7 @@ if (navigator.geolocation) {
       <p>${likeList.likeName}</p>
       <p>${likeList.likeAddr}</p>           
       </div>
-+
+
     </c:forEach>
     
        

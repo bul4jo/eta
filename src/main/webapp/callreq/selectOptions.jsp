@@ -23,9 +23,9 @@
  <input type="hidden" name="startAddr" id="startAddrInput">
  <input type="hidden" name="endAddr" id="endAddrInput">
   <input type="hidden" name="endAddr" value=>
- 차량 옵션 : <input type="text" value="4" class="content"><br>
- 반려동물 옵션 : <input type="text" value="0" class="content"><br>
- 경로 옵션 : <input type="text" value="추천" class="content"><br>
+ 차량 옵션 : <input type="text" value="4" class="content" name="carOpt"><br>
+ 반려동물 옵션 : <input type="text" value="0" class="content" name="petOpt"><br>
+ 경로 옵션 : <input type="text" value="추천" class="content" name="routeOpt"><br>
  
  잔여 Tpay : ${myMoney} 원<br>
  선결제 예상금액 : <input type="text" id = "prepay" name="realPay" value="100" class="content"> <br>
