@@ -1,13 +1,10 @@
 package kr.pe.eta;
 
-import java.util.Map;
-
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import kr.pe.eta.common.Search2;
 import kr.pe.eta.domain.Notice;
 import kr.pe.eta.service.notice.NoticeDao;
 import kr.pe.eta.service.notice.NoticeService;
@@ -48,24 +45,22 @@ public class NoticeApplicationTests {
 	}
 
 	// @Test
-	public void testGetNoticeList() throws Exception {
-
-		Search2 search = new Search2("test", 3, 1);
-
-		// Notice notice = noticeDao.getNotice(noticeNo);
-		Map<String, Object> notice = noticeService.getNoticeList(search);
-		Assert.notNull(notice);
-		System.out.println("///testGetNotice/////" + notice);
-
-	}
-
-	// @Test
-	public void testUpdateNotice() throws Exception {
-		Notice notice = new Notice(1021, "test수정453", "test수정453 입니다.");
-		System.out.println(notice);
-		noticeService.updateNotice(notice);
-		Assertions.assertEquals(1, noticeDao.updateNotice(notice));
-	}
+	/*
+	 * public void testGetNoticeList() throws Exception {
+	 * 
+	 * Search2 search = new Search2("test", 3, 1);
+	 * 
+	 * // Notice notice = noticeDao.getNotice(noticeNo); Map<String, Object> notice
+	 * = noticeService.getNoticeList(search); Assert.notNull(notice);
+	 * System.out.println("///testGetNotice/////" + notice);
+	 * 
+	 * }
+	 * 
+	 * // @Test public void testUpdateNotice() throws Exception { Notice notice =
+	 * new Notice(1021, "test수정453", "test수정453 입니다."); System.out.println(notice);
+	 * noticeService.updateNotice(notice); Assertions.assertEquals(1,
+	 * noticeDao.updateNotice(notice)); }
+	 */
 
 	// @Test
 	public void testDeleteNotice() throws Exception {
